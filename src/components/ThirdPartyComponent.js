@@ -8,17 +8,20 @@ const ThirdPartyComponent = () => {
     const [forecast, setForecast] = useState(null);
 
     useEffect(() => {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(position => {
-                const { latitude, longitude } = position.coords;
-                fetchWeather(latitude, longitude);
-                fetchForecast(latitude, longitude);
-            }, error => {
-                console.error("Error getting location", error);
-            });
-        } else {
-            alert('Geolocation is not supported by this browser.');
-        }
+        // if (navigator.geolocation) {
+        //     navigator.geolocation.getCurrentPosition(position => {
+        //         const { latitude, longitude } = position.coords;
+        //         fetchWeather(latitude, longitude);
+        //         fetchForecast(latitude, longitude);
+        //     }, error => {
+        //         console.error("Error getting location", error);
+        //     });
+        // } else {
+        //     alert('Geolocation is not supported by this browser.');
+        // }
+
+        fetchWeather(42.6859364, -73.8278254);
+        fetchForecast(42.6859364, -73.8278254);
     }, []);
 
     const fetchWeather = async (latitude, longitude) => {
