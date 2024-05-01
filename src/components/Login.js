@@ -19,7 +19,7 @@ const Login = () => {
     const onSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5006/user/login', formData);
+            const response = await axios.post('http://ec2-18-227-13-56.us-east-2.compute.amazonaws.com:5006/user/login', formData);
             navigate(`/userinfo/${response.data.userId}`);
         } catch (err) {
             setError(err.response.data.message || 'Failed to login');

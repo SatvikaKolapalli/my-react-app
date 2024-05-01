@@ -22,7 +22,7 @@ const AddInventoryItem = () => {
         formData.append('image', file);
 
         try {
-            const response = await axios.post('http://localhost:5006/inventory/uploadImage', formData, {
+            const response = await axios.post('http://ec2-18-227-13-56.us-east-2.compute.amazonaws.com:5006/inventory/uploadImage', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -48,7 +48,7 @@ const AddInventoryItem = () => {
             const imageUrl = await uploadImage();
             const payload = { name, quantity, imageUrl };
 
-            await axios.post('http://localhost:5006/inventory/addItem', payload);
+            await axios.post('http://ec2-18-227-13-56.us-east-2.compute.amazonaws.com:5006/inventory/addItem', payload);
             navigate('/inventorypage');
         } catch (error) {
             console.error('Error adding inventory item:', error);

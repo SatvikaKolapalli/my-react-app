@@ -11,7 +11,7 @@ const InventoryList = () => {
 
     const fetchItems = async () => {
         try {
-            const response = await axios.get('http://localhost:5006/inventory/getItems');
+            const response = await axios.get('http://ec2-18-227-13-56.us-east-2.compute.amazonaws.com:5006/inventory/getItems');
             setItems(response.data.items);
         } catch (error) {
             console.error('Error fetching items:', error);
@@ -20,7 +20,7 @@ const InventoryList = () => {
 
     // const deleteItem = async (id) => {
     //     try {
-    //         const response = await axios.delete('http://localhost:5006/inventory/deleteItem', { _id: id });
+    //         const response = await axios.delete('http://ec2-18-227-13-56.us-east-2.compute.amazonaws.com:5006/inventory/deleteItem', { _id: id });
             
             
     //         fetchItems();
@@ -33,7 +33,7 @@ const InventoryList = () => {
         try {
             const response = await axios({
                 method: 'delete', // or 'post' if your server requires a POST request for deletion
-                url: 'http://localhost:5006/inventory/deleteItem',
+                url: 'http://ec2-18-227-13-56.us-east-2.compute.amazonaws.com:5006/inventory/deleteItem',
                 data: {
                     _id: id  // Ensure this matches the expected format in the backend
                 }

@@ -22,7 +22,7 @@ const UpdateInventoryItem = () => {
 
         // console.log("Item id: ", _id);
         try {
-            const response = await axios.get(`http://localhost:5006/inventory/getItem`, {
+            const response = await axios.get(`http://ec2-18-227-13-56.us-east-2.compute.amazonaws.com:5006/inventory/getItem`, {
                 params: { _id: id }
             });
             setItem(response.data.item);
@@ -43,7 +43,7 @@ const UpdateInventoryItem = () => {
     //     formData.append('image', file);
 
     //     try {
-    //         const response = await axios.post('http://localhost:5006/inventory/uploadImage', formData, {
+    //         const response = await axios.post('http://ec2-18-227-13-56.us-east-2.compute.amazonaws.com:5006/inventory/uploadImage', formData, {
     //             headers: {
     //                 'Content-Type': 'multipart/form-data'
     //             }
@@ -72,7 +72,7 @@ const UpdateInventoryItem = () => {
             // const imageUrl = file ? await uploadImage() : item.imageUrl;
             const imageUrl = item.imageUrl;
 
-            await axios.put('http://localhost:5006/inventory/updateItem', {
+            await axios.put('http://ec2-18-227-13-56.us-east-2.compute.amazonaws.com:5006/inventory/updateItem', {
                 _id: id,
                 name: item.name,
                 quantity: item.quantity,

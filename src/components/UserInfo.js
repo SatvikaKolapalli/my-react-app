@@ -10,7 +10,7 @@ const UserInfo = () => {
     useEffect(() => {
         const fetchUserInfo = async () => {
             try {
-                const response = await axios.get(`http://localhost:5006/user/getUserInfo`,  {
+                const response = await axios.get(`http://ec2-18-227-13-56.us-east-2.compute.amazonaws.com:5006/user/getUserInfo`,  {
                     params: { _id: id }
                 });
                 setUser(response.data.user);

@@ -22,7 +22,7 @@ const SignUp = () => {
     const onSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:5006/user/signup', formData);
+            await axios.post('http://ec2-18-227-13-56.us-east-2.compute.amazonaws.com:5006/user/signup', formData);
             navigate('/login');
         } catch (err) {
             setError(err.response.data.message || 'Failed to signup');
